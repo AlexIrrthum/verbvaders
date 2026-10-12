@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VerbVaders – verbes irréguliers néerlandais</title>
+<meta name="description" content="Un jeu d'arcade type Space Invaders pour apprendre les temps primitifs des verbes irréguliers néerlandais.">
+<meta property="og:title" content="VerbVaders">
+<meta property="og:description" content="Un jeu d'arcade type Space Invaders pour apprendre les verbes irréguliers néerlandais.">
+<meta property="og:image" content="https://alexirrthum.github.io/verbvaders/verbvaders-screenshot.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👾</text></svg>">
+<style>
+  :root{--bg:#060918;--panel:#0d1330;--panel2:#141b40;--line:#252f63;--text:#e3e9ff;--muted:#8e98c8;--accent:#5ee0ff;--good:#4dff9a;--bad:#ff5470;--gold:#ffe066}
+  *{box-sizing:border-box}
+  html{background:var(--bg)}
+  body{margin:0;color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6;
+    background:
+      radial-gradient(1px 1px at 12% 18%,#fff8,transparent),radial-gradient(1px 1px at 78% 9%,#fff6,transparent),
+      radial-gradient(1.5px 1.5px at 33% 72%,#fff7,transparent),radial-gradient(1px 1px at 88% 58%,#fff5,transparent),
+      radial-gradient(1px 1px at 55% 35%,#fff6,transparent),radial-gradient(1.5px 1.5px at 6% 88%,#fff5,transparent),
+      radial-gradient(1px 1px at 66% 92%,#fff6,transparent),radial-gradient(1px 1px at 95% 30%,#fff7,transparent),
+      radial-gradient(ellipse at 50% -10%,#1a2a6c55,transparent 60%);
+    background-attachment:fixed}
+  main{max-width:960px;margin:0 auto;padding:56px 20px 32px}
+  header{text-align:center}
+  .logo{font-size:56px;line-height:1;margin-bottom:8px}
+  h1{margin:0;font-size:clamp(40px,8vw,68px);letter-spacing:2px;color:var(--accent);text-shadow:0 0 18px #5ee0ff88,0 0 42px #5ee0ff33}
+  .tagline{max-width:620px;margin:14px auto 0;font-size:18px;color:var(--muted)}
+  .tagline b{color:var(--text);font-weight:600}
+  .play{display:inline-block;margin-top:28px;padding:14px 38px;border-radius:999px;background:var(--good);color:#04140b;font-weight:700;font-size:20px;text-decoration:none;letter-spacing:.5px;box-shadow:0 0 24px #4dff9a66;transition:transform .15s,box-shadow .15s}
+  .play:hover{transform:translateY(-2px);box-shadow:0 0 36px #4dff9aaa}
+  .note{margin-top:12px;font-size:13.5px;color:var(--muted)}
+  .shot{display:block;width:100%;height:auto;margin:44px 0 0;border:1px solid var(--line);border-radius:14px;box-shadow:0 20px 60px #000a,0 0 40px #5ee0ff1a}
+  h2{margin:56px 0 18px;text-align:center;font-size:24px;color:var(--gold);letter-spacing:.5px}
+  .modes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+  .card h3{margin:0 0 8px;font-size:20px}
+  .card p{margin:0;color:var(--muted)}
+  .card p b{color:var(--text);font-weight:600}
+  .ok{color:var(--good)}.ko{color:var(--bad)}
+  kbd{display:inline-block;min-width:22px;padding:0 6px;border:1px solid #3a4585;border-bottom-width:2px;border-radius:5px;background:#1b2350;color:var(--text);font:600 13px/1.6 ui-monospace,Menlo,monospace;text-align:center}
+  .local{margin-top:18px;text-align:center;color:var(--muted);font-size:14.5px}
+  .local a,footer a{color:var(--accent)}
+  code{font-family:ui-monospace,Menlo,monospace;font-size:.92em;background:var(--panel2);border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--text)}
+  .pro{margin-top:44px;padding:24px 28px;text-align:center;background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:14px;color:var(--muted);font-size:16.5px}
+  .pro p{margin:0;max-width:680px;margin-inline:auto}
+  .pro b{color:var(--text);font-weight:600}
+  .pro a{color:var(--gold);font-weight:600;text-decoration:none}
+  .pro a:hover{text-decoration:underline}
+  footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);text-align:center;font-size:13.5px;color:var(--muted)}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="logo">👾</div>
+    <h1>VerbVaders</h1>
+    <p class="tagline">Un jeu d'arcade type Space Invaders pour aider un·e élève de l'enseignement secondaire belge à apprendre les <b>temps primitifs des verbes irréguliers néerlandais</b>.</p>
+    <a class="play" href="verbvaders.html">▶ Jouer</a>
+    <div class="note">Se joue au clavier, sur ordinateur.</div>
+  </header>
+
+  <img class="shot" src="verbvaders-screenshot.png" alt="Capture d'écran de VerbVaders" width="2138" height="1294">
+
+  <h2>Deux modes de jeu</h2>
+  <div class="modes">
+    <div class="card">
+      <h3>🎯 Tir</h3>
+      <p>Les formes du verbe descendent mêlées à des pièges : on <span class="ko">détruit les fausses</span> au canon (<kbd>Espace</kbd>) et on <span class="ok">valide les correctes</span> au rayon (<kbd>↑</kbd>).</p>
+    </div>
+    <div class="card">
+      <h3>⌨️ Écrit</h3>
+      <p>On tape chaque forme au clavier (<b>prétérit</b>, <b>prétérit pluriel</b>, <b>auxiliaire</b>, <b>participe passé</b>) puis on choisit la traduction parmi trois propositions.</p>
+    </div>
+  </div>
+
+  <p class="local">Le jeu tient dans un fichier unique : <a href="verbvaders.html" download><code>verbvaders.html</code></a>. Téléchargez-le et ouvrez-le dans un navigateur pour jouer hors ligne.</p>
+
+  <aside class="pro">
+    <p>VerbVaders a été créé pour une élève en particulier. Je conçois sur mesure des <b>jeux et applications pédagogiques</b> de ce type, pensés pour aider un·e apprenant·e à surmonter une difficulté ponctuelle du programme scolaire : mathématiques, sciences, langues…<br>
+    Contact : <a href="mailto:alex@irrthum.be">alex@irrthum.be</a></p>
+  </aside>
+
+  <footer>
+    © 2026 Alexandre Irrthum · licence MIT · <a href="https://github.com/AlexIrrthum/verbvaders">code source sur GitHub</a><br>
+    Codé avec Claude Opus 5.5.
+  </footer>
+</main>
+</body>
+</html>
